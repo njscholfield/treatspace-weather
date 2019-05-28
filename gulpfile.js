@@ -5,7 +5,7 @@ var cleancss = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var gzip = require('gulp-gzip');
 var notify = require('gulp-notify');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-terser'); // changed to terser to use ES6
 
 var gzip_options = {
     threshold: '1kb',
