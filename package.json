@@ -1,22 +1,27 @@
 {
-  "name": "frontend-engineering-test",
+  "name": "treatspace-weather",
   "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
+  "description": "A simple weather app using the Dark Sky API",
+  "main": "index.js",
+  "repository": "https://github.com/njscholfield/treatspace-weather",
   "dependencies": {
+    "express": "^4.17.1",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
     "gulp-gzip": "^1.4.2",
     "gulp-notify": "^3.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.2",
-    "gulp-watch": "^5.0.1"
+    "gulp-terser": "^1.2.0",
+    "gulp-watch": "^5.0.1",
+    "http-proxy-middleware": "^0.19.1"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node index.js",
+    "gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Noah Scholfield",
   "license": "ISC"
 }
