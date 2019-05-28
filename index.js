@@ -1,6 +1,6 @@
 // Becuase of CORS restrictions on the Dark Sky API I had to make quick proxy for the requests...
 
-const SECRET_KEY = '63f2830e1c6ca02666fd373aba8bd835';
+const SECRET_KEY = 'Dark Sky API key goes here';
 
 const proxy = require('http-proxy-middleware');
 const express = require('express');
