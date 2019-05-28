@@ -1,6 +1,6 @@
 /* global $, Skycons */
 
-const skycons = new Skycons({'color': 'lightBlue'});
+const skycons = new Skycons({'color': 'lightBlue'}); // initialize animated weather icons
 const dayCards = [...document.getElementsByClassName('card-body')];
 const WEEKDAYS = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 const TODAY = new Date();
@@ -22,15 +22,13 @@ $(document).ready(function() {
 });
 
 function getWeatherData(latLong) {
-// Write a function to use the DarkSky api to gather weather data and update the screen.
-// I had to proxy the api request because of CORS restrictions so yeah
-document.getElementById('location').textContent = latLong;
+  document.getElementById('location').textContent = latLong;
 
+  // I had to proxy the api request because of CORS restrictions so yeah
   fetch(`/api/${latLong}?exclude=hourly,minutely,flags`)
     .then(response => response.json())
     .then(data => updatePage(data))
     .catch(err => console.log(err));
-  // Optionally, if you would rather use a library as was discussed in the README, feel free to do so.
 }
 
 // Function that updates the page with the data from the DarkSky api
@@ -39,6 +37,7 @@ function updatePage(data) {
   document.getElementById('current-weather').textContent = data.currently.summary;
   document.getElementById('current-summary').textContent = data.daily.summary;
 
+  // Iterate through the day cards to update their contents
   dayCards.forEach((card, index) => {
     const dayData = data.daily.data[index];
     const weekdayNum = new Date(dayData.time * 1000).getDay();
@@ -49,7 +48,7 @@ function updatePage(data) {
     card.querySelector('.lo').innerHTML = roundTemp(dayData.temperatureLow);
   });
 
-  skycons.play();
+  skycons.play(); // start the weather icon animation
 }
 
 // Function that returns a rounded temperature with a degree sign for display
